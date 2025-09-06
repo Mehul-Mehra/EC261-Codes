@@ -1,0 +1,63 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000023581856a20 .scope module, "xnor_from_nand_tb" "xnor_from_nand_tb" 2 2;
+ .timescale -12 -12;
+v0000023581854190_0 .var "a", 0 0;
+v0000023581854230_0 .var "b", 0 0;
+v00000235818542d0_0 .net "y", 0 0, L_000002358189bb30;  1 drivers
+S_0000023581856bb0 .scope module, "uut" "xnor_from_nand" 2 7, 3 1 0, S_0000023581856a20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0000023581823430 .functor NAND 1, v0000023581854190_0, v0000023581854230_0, C4<1>, C4<1>;
+L_000002358189ba50 .functor NAND 1, v0000023581854190_0, L_0000023581823430, C4<1>, C4<1>;
+L_000002358189b970 .functor NAND 1, v0000023581854230_0, L_0000023581823430, C4<1>, C4<1>;
+L_000002358189bac0 .functor NAND 1, L_000002358189ba50, L_000002358189b970, C4<1>, C4<1>;
+L_000002358189bb30 .functor NAND 1, L_000002358189bac0, L_000002358189bac0, C4<1>, C4<1>;
+v0000023581822e90_0 .net "a", 0 0, v0000023581854190_0;  1 drivers
+v0000023581822c30_0 .net "b", 0 0, v0000023581854230_0;  1 drivers
+v00000235818230b0_0 .net "nand_a_nand_ab", 0 0, L_000002358189ba50;  1 drivers
+v0000023581809b30_0 .net "nand_ab", 0 0, L_0000023581823430;  1 drivers
+v000002358180be40_0 .net "nand_b_nand_ab", 0 0, L_000002358189b970;  1 drivers
+v000002358180bee0_0 .net "ny", 0 0, L_000002358189bac0;  1 drivers
+v00000235818540f0_0 .net "y", 0 0, L_000002358189bb30;  alias, 1 drivers
+    .scope S_0000023581856a20;
+T_0 ;
+    %vpi_call 2 13 "$monitor", "a=%b, b=%b, y=%b", v0000023581854190_0, v0000023581854230_0, v00000235818542d0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000023581854190_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000023581854230_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000023581854190_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023581854230_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023581854190_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000023581854230_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023581854190_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000023581854230_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "xnor_from_nand_tb.v";
+    "xnor_from_nand.v";
