@@ -21,5 +21,8 @@ initial begin
     
     $finish;
 end
-
+initial begin
+    $dumpfile("or_gate_tb.vcd");
+    $dumpvars(0, or_gate_tb);
+end
 endmodule

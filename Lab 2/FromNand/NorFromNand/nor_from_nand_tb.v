@@ -18,4 +18,8 @@ module nor_from_nand_tb;
         a = 1; b = 1;#10; 
         $finish;
     end
+    initial begin
+        $dumpfile("nor_from_nand_tb.vcd");
+        $dumpvars(0, nor_from_nand_tb);
+    end
 endmodule

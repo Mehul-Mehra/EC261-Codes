@@ -7,54 +7,60 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_00000199d4d368d0 .scope module, "xor_from_nor_tb" "xor_from_nor_tb" 2 2;
+S_000001ddfdb7b6f0 .scope module, "xor_from_nor_tb" "xor_from_nor_tb" 2 2;
  .timescale -12 -12;
-v00000199d4d340f0_0 .var "a", 0 0;
-v00000199d4d34190_0 .var "b", 0 0;
-v00000199d4d34230_0 .net "y", 0 0, L_00000199d4d7b900;  1 drivers
-S_00000199d4d36a60 .scope module, "uut" "xor_from_nor" 2 7, 3 1 0, S_00000199d4d368d0;
+v000001ddfdc4e030_0 .var "a", 0 0;
+v000001ddfdc4e0d0_0 .var "b", 0 0;
+v000001ddfdc4e170_0 .net "y", 0 0, L_000001ddfdc4e3b0;  1 drivers
+S_000001ddfdc06aa0 .scope module, "uut" "xor_from_nor" 2 7, 3 1 0, S_000001ddfdb7b6f0;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /INPUT 1 "b";
     .port_info 2 /OUTPUT 1 "y";
-L_00000199d4d03430 .functor NOR 1, v00000199d4d340f0_0, v00000199d4d34190_0, C4<0>, C4<0>;
-L_00000199d4d032d0 .functor NOR 1, v00000199d4d340f0_0, L_00000199d4d03430, C4<0>, C4<0>;
-L_00000199d4cebef0 .functor NOR 1, v00000199d4d34190_0, L_00000199d4d03430, C4<0>, C4<0>;
-L_00000199d4d342d0 .functor NOR 1, L_00000199d4d032d0, L_00000199d4cebef0, C4<0>, C4<0>;
-L_00000199d4d7b900 .functor NOR 1, L_00000199d4d342d0, L_00000199d4d342d0, C4<0>, C4<0>;
-v00000199d4d02e90_0 .net "a", 0 0, v00000199d4d340f0_0;  1 drivers
-v00000199d4d02c30_0 .net "b", 0 0, v00000199d4d34190_0;  1 drivers
-v00000199d4d030b0_0 .net "nor1", 0 0, L_00000199d4d03430;  1 drivers
-v00000199d4ce9a00_0 .net "nor2", 0 0, L_00000199d4d032d0;  1 drivers
-v00000199d4cebd10_0 .net "nor3", 0 0, L_00000199d4cebef0;  1 drivers
-v00000199d4cebdb0_0 .net "ny", 0 0, L_00000199d4d342d0;  1 drivers
-v00000199d4cebe50_0 .net "y", 0 0, L_00000199d4d7b900;  alias, 1 drivers
-    .scope S_00000199d4d368d0;
+L_000001ddfdc06eb0 .functor NOR 1, v000001ddfdc4e030_0, v000001ddfdc4e0d0_0, C4<0>, C4<0>;
+L_000001ddfdbd30a0 .functor NOR 1, v000001ddfdc4e030_0, L_000001ddfdc06eb0, C4<0>, C4<0>;
+L_000001ddfdbd3600 .functor NOR 1, v000001ddfdc4e0d0_0, L_000001ddfdc06eb0, C4<0>, C4<0>;
+L_000001ddfdb7bbd0 .functor NOR 1, L_000001ddfdbd30a0, L_000001ddfdbd3600, C4<0>, C4<0>;
+L_000001ddfdc4e3b0 .functor NOR 1, L_000001ddfdb7bbd0, L_000001ddfdb7bbd0, C4<0>, C4<0>;
+v000001ddfdbd33e0_0 .net "a", 0 0, v000001ddfdc4e030_0;  1 drivers
+v000001ddfdb7b880_0 .net "b", 0 0, v000001ddfdc4e0d0_0;  1 drivers
+v000001ddfdb7a3d0_0 .net "nor1", 0 0, L_000001ddfdc06eb0;  1 drivers
+v000001ddfdc06c30_0 .net "nor2", 0 0, L_000001ddfdbd30a0;  1 drivers
+v000001ddfdc06cd0_0 .net "nor3", 0 0, L_000001ddfdbd3600;  1 drivers
+v000001ddfdc06d70_0 .net "ny", 0 0, L_000001ddfdb7bbd0;  1 drivers
+v000001ddfdc06e10_0 .net "y", 0 0, L_000001ddfdc4e3b0;  alias, 1 drivers
+    .scope S_000001ddfdb7b6f0;
 T_0 ;
-    %vpi_call 2 14 "$monitor", "a=%b, b=%b, y=%b", v00000199d4d340f0_0, v00000199d4d34190_0, v00000199d4d34230_0 {0 0 0};
+    %vpi_call 2 14 "$monitor", "a=%b, b=%b, y=%b", v000001ddfdc4e030_0, v000001ddfdc4e0d0_0, v000001ddfdc4e170_0 {0 0 0};
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v00000199d4d340f0_0, 0, 1;
+    %store/vec4 v000001ddfdc4e030_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v00000199d4d34190_0, 0, 1;
+    %store/vec4 v000001ddfdc4e0d0_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v00000199d4d340f0_0, 0, 1;
+    %store/vec4 v000001ddfdc4e030_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v00000199d4d34190_0, 0, 1;
+    %store/vec4 v000001ddfdc4e0d0_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v00000199d4d340f0_0, 0, 1;
+    %store/vec4 v000001ddfdc4e030_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v00000199d4d34190_0, 0, 1;
+    %store/vec4 v000001ddfdc4e0d0_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v00000199d4d340f0_0, 0, 1;
+    %store/vec4 v000001ddfdc4e030_0, 0, 1;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v00000199d4d34190_0, 0, 1;
+    %store/vec4 v000001ddfdc4e0d0_0, 0, 1;
     %delay 10, 0;
     %vpi_call 2 19 "$finish" {0 0 0};
     %end;
     .thread T_0;
+    .scope S_000001ddfdb7b6f0;
+T_1 ;
+    %vpi_call 2 22 "$dumpfile", "xor_from_nor_tb.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001ddfdb7b6f0 {0 0 0};
+    %end;
+    .thread T_1;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";

@@ -19,4 +19,8 @@ module nand_gate_tb;
         a = 1; b = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("nand_gate_tb.vcd");
+        $dumpvars(0, nand_gate_tb);
+    end
 endmodule

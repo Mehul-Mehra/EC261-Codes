@@ -21,4 +21,8 @@ module fa_from_nand_tb;
         a=1;b=1;cin=1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("fa_from_nand_tb.vcd");
+        $dumpvars(0,fa_from_nand_tb);
+    end
 endmodule

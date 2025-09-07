@@ -17,4 +17,8 @@ module and_from_nor_tb;
         a = 1; b = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("and_from_nor_tb.vcd");
+        $dumpvars(0, and_from_nor_tb);
+    end
 endmodule

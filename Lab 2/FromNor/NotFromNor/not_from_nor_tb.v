@@ -14,4 +14,8 @@ module not_from_nor_tb;
         a = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("not_from_nor_tb.vcd");
+        $dumpvars(0, not_from_nor_tb);
+    end
 endmodule

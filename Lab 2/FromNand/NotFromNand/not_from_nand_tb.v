@@ -9,4 +9,8 @@ module not_from_nand_tb;
         a = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("not_from_nand_tb.vcd");
+        $dumpvars(0, not_from_nand_tb);
+    end
 endmodule

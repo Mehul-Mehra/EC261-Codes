@@ -15,4 +15,8 @@ initial begin
     A=1;B=1; #10;
     $finish;
 end
+initial begin
+    $dumpfile("or_from_nand.vcd");
+    $dumpvars(0, or_from_nand_tb);
+end
 endmodule

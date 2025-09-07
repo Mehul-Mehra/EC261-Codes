@@ -28,4 +28,8 @@ module full_adder_tb;
         a = 1; b = 1; cin = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("full_adder_tb.vcd");
+        $dumpvars(0, full_adder_tb);
+    end
 endmodule

@@ -11,4 +11,8 @@ module or_from_nor_tb;
         a = 1; b = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("or_from_nor_tb.vcd");
+        $dumpvars(0, or_from_nor_tb);
+    end
 endmodule

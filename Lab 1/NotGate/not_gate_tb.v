@@ -14,4 +14,8 @@ module not_gate_tb;
         a = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("not_gate_tb.vcd");
+        $dumpvars(0, not_gate_tb);
+    end
 endmodule

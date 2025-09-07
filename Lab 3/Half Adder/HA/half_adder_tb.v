@@ -18,4 +18,8 @@ module half_adder_tb;
         a = 1; b = 1; #10;
         $finish;
     end
+    initial begin
+        $dumpfile("half_adder_tb.vcd");
+        $dumpvars(0, half_adder_tb);
+    end
 endmodule

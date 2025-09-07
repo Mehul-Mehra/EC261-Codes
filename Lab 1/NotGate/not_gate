@@ -7,29 +7,35 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000002e04c732ce0 .scope module, "not_gate_tb" "not_gate_tb" 2 2;
+S_000001b551312ca0 .scope module, "not_gate_tb" "not_gate_tb" 2 2;
  .timescale -12 -12;
-v000002e04c733000_0 .var "a", 0 0;
-v000002e04c7330a0_0 .net "y", 0 0, L_000002e04c733340;  1 drivers
-S_000002e04c732e70 .scope module, "uut" "not_gate" 2 6, 3 1 0, S_000002e04c732ce0;
+v000001b551312fc0_0 .var "a", 0 0;
+v000001b551313060_0 .net "y", 0 0, L_000001b5512fa5d0;  1 drivers
+S_000001b551312e30 .scope module, "uut" "not_gate" 2 6, 3 1 0, S_000001b551312ca0;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /OUTPUT 1 "y";
-L_000002e04c733340 .functor NOT 1, v000002e04c733000_0, C4<0>, C4<0>, C4<0>;
-v000002e04c733560_0 .net "a", 0 0, v000002e04c733000_0;  1 drivers
-v000002e04c733cb0_0 .net "y", 0 0, L_000002e04c733340;  alias, 1 drivers
-    .scope S_000002e04c732ce0;
+L_000001b5512fa5d0 .functor NOT 1, v000001b551312fc0_0, C4<0>, C4<0>, C4<0>;
+v000001b5513133e0_0 .net "a", 0 0, v000001b551312fc0_0;  1 drivers
+v000001b551313b30_0 .net "y", 0 0, L_000001b5512fa5d0;  alias, 1 drivers
+    .scope S_000001b551312ca0;
 T_0 ;
-    %vpi_call 2 12 "$monitor", "a = %b, y = %b", v000002e04c733000_0, v000002e04c7330a0_0 {0 0 0};
+    %vpi_call 2 12 "$monitor", "a = %b, y = %b", v000001b551312fc0_0, v000001b551313060_0 {0 0 0};
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v000002e04c733000_0, 0, 1;
+    %store/vec4 v000001b551312fc0_0, 0, 1;
     %delay 10, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v000002e04c733000_0, 0, 1;
+    %store/vec4 v000001b551312fc0_0, 0, 1;
     %delay 10, 0;
     %vpi_call 2 15 "$finish" {0 0 0};
     %end;
     .thread T_0;
+    .scope S_000001b551312ca0;
+T_1 ;
+    %vpi_call 2 18 "$dumpfile", "not_gate_tb.vcd" {0 0 0};
+    %vpi_call 2 19 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001b551312ca0 {0 0 0};
+    %end;
+    .thread T_1;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";
