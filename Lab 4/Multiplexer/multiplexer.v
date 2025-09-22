@@ -33,20 +33,11 @@ module tb_mux8to1;
     initial begin
         $display("Sel\tD\t\tY");
         $monitor("%b\t%b\t%b", sel, d, y);
-
-        // Test 16 cases: each input bit once with 0, once with 1
         for (i = 0; i < 8; i = i + 1) begin
-            sel = i;              // Select input i
-            
-            // Case 1: input bit = 0
-            d = 8'b0;             // all 0s
-            #5;
-
-            // Case 2: input bit = 1
-            d = (1 << i);         // only d[i] = 1
-            #5;
+            sel = i;       
+            d = 8'b0;#5;
+            d = (1 << i);#5;
         end
-
         #10 $finish;
     end
     initial begin

@@ -4,7 +4,7 @@ module demux8to1 (
     output reg [7:0] y   
 );
     always @(*) begin
-        y = 8'b0;               // Default all outputs off
+        y = 8'b0;               
         if (din) begin
             case (sel)
                 3'b000: y[0] = 1;
@@ -34,14 +34,11 @@ module tb_demux8to1;
     initial begin
         $display("Sel\tDin\tY");
         $monitor("%b\t%b\t%b", sel, din, y);
-
-        // Loop through all select lines
         for (i = 0; i < 8; i = i + 1) begin
             sel = i;
             din = 1;
             #5;
         end
-
         #10 $finish;
     end
     initial begin
