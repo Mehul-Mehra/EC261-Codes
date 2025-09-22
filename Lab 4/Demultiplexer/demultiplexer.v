@@ -20,7 +20,7 @@ module demux8to1 (
     end
 endmodule
 
-`timescale 1ns/1ps
+`timescale 1ps/1ps
 module tb_demux8to1;
     reg din;             
     reg [2:0] sel;       
