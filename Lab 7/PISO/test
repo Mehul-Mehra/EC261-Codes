@@ -1,0 +1,97 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002ac0fe1b9c0 .scope module, "tb_piso4" "tb_piso4" 2 14;
+ .timescale -12 -12;
+v000002ac0fe33000_0 .var "clk", 0 0;
+v000002ac0fe330a0_0 .var "load", 0 0;
+v000002ac0feaf830_0 .var "pi", 3 0;
+v000002ac0feaf8d0_0 .var "rst", 0 0;
+v000002ac0feaf970_0 .net "so", 0 0, L_000002ac0feafa10;  1 drivers
+S_000002ac0fe1bb50 .scope module, "dut" "piso4" 2 18, 2 1 0, S_000002ac0fe1b9c0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst";
+    .port_info 2 /INPUT 1 "load";
+    .port_info 3 /INPUT 4 "pi";
+    .port_info 4 /OUTPUT 1 "so";
+v000002ac0fe1a820_0 .net "clk", 0 0, v000002ac0fe33000_0;  1 drivers
+v000002ac0fe32ce0_0 .net "load", 0 0, v000002ac0fe330a0_0;  1 drivers
+v000002ac0fe32d80_0 .net "pi", 3 0, v000002ac0feaf830_0;  1 drivers
+v000002ac0fe32e20_0 .var "q", 3 0;
+v000002ac0fe32ec0_0 .net "rst", 0 0, v000002ac0feaf8d0_0;  1 drivers
+v000002ac0fe32f60_0 .net "so", 0 0, L_000002ac0feafa10;  alias, 1 drivers
+E_000002ac0fe18f20 .event posedge, v000002ac0fe32ec0_0, v000002ac0fe1a820_0;
+L_000002ac0feafa10 .part v000002ac0fe32e20_0, 3, 1;
+    .scope S_000002ac0fe1bb50;
+T_0 ;
+    %wait E_000002ac0fe18f20;
+    %load/vec4 v000002ac0fe32ec0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v000002ac0fe32e20_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v000002ac0fe32ce0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v000002ac0fe32d80_0;
+    %assign/vec4 v000002ac0fe32e20_0, 0;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/vec4 v000002ac0fe32e20_0;
+    %parti/s 3, 0, 2;
+    %concati/vec4 0, 0, 1;
+    %assign/vec4 v000002ac0fe32e20_0, 0;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000002ac0fe1b9c0;
+T_1 ;
+    %vpi_call 2 20 "$monitor", "clk=%b rst=%b load=%b pi=%b so=%b", v000002ac0fe33000_0, v000002ac0feaf8d0_0, v000002ac0fe330a0_0, v000002ac0feaf830_0, v000002ac0feaf970_0 {0 0 0};
+    %vpi_call 2 21 "$dumpfile", "piso.vcd" {0 0 0};
+    %vpi_call 2 22 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002ac0fe1b9c0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002ac0fe33000_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002ac0feaf8d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002ac0fe330a0_0, 0, 1;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v000002ac0feaf830_0, 0, 4;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002ac0feaf8d0_0, 0, 1;
+    %pushi/vec4 11, 0, 4;
+    %store/vec4 v000002ac0feaf830_0, 0, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002ac0fe330a0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002ac0fe330a0_0, 0, 1;
+    %delay 40, 0;
+    %delay 20, 0;
+    %vpi_call 2 27 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000002ac0fe1b9c0;
+T_2 ;
+    %delay 5, 0;
+    %load/vec4 v000002ac0fe33000_0;
+    %inv;
+    %store/vec4 v000002ac0fe33000_0, 0, 1;
+    %jmp T_2;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "piso.v";

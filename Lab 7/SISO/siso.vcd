@@ -1,0 +1,75 @@
+$date
+	Mon Oct 27 20:02:34 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_siso4 $end
+$var wire 1 ! so $end
+$var reg 1 " clk $end
+$var reg 1 # rst $end
+$var reg 1 $ si $end
+$scope module dut $end
+$var wire 1 " clk $end
+$var wire 1 # rst $end
+$var wire 1 $ si $end
+$var wire 1 ! so $end
+$var reg 4 % q [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+0$
+1#
+0"
+0!
+$end
+#5
+1"
+#10
+0"
+1$
+0#
+#15
+b1 %
+1"
+#20
+0"
+0$
+#25
+b10 %
+1"
+#30
+0"
+1$
+#35
+b101 %
+1"
+#40
+0"
+#45
+1!
+b1011 %
+1"
+#50
+0"
+#55
+0!
+b111 %
+1"
+#60
+0"
+#65
+1!
+b1111 %
+1"
+#70
+0"
