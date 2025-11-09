@@ -1,0 +1,68 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000026bdaff6030 .scope module, "tb_up_counter" "tb_up_counter" 2 17;
+ .timescale -12 -12;
+v0000026bdafabd20_0 .var "clk", 0 0;
+v0000026bdafa9510_0 .net "count", 3 0, v0000026bdafc3580_0;  1 drivers
+v0000026bdafa95b0_0 .var "reset", 0 0;
+S_0000026bdaff61c0 .scope module, "uut" "up_counter" 2 24, 2 1 0, S_0000026bdaff6030;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /OUTPUT 4 "count";
+v0000026bdafc3360_0 .net "clk", 0 0, v0000026bdafabd20_0;  1 drivers
+v0000026bdafc3580_0 .var "count", 3 0;
+v0000026bdafc30e0_0 .net "reset", 0 0, v0000026bdafa95b0_0;  1 drivers
+E_0000026bdafacce0 .event posedge, v0000026bdafc30e0_0, v0000026bdafc3360_0;
+    .scope S_0000026bdaff61c0;
+T_0 ;
+    %wait E_0000026bdafacce0;
+    %load/vec4 v0000026bdafc30e0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v0000026bdafc3580_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000026bdafc3580_0;
+    %addi 1, 0, 4;
+    %assign/vec4 v0000026bdafc3580_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000026bdaff6030;
+T_1 ;
+    %delay 5, 0;
+    %load/vec4 v0000026bdafabd20_0;
+    %inv;
+    %store/vec4 v0000026bdafabd20_0, 0, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0000026bdaff6030;
+T_2 ;
+    %vpi_call 2 34 "$dumpfile", "waves.vcd" {0 0 0};
+    %vpi_call 2 35 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000026bdaff6030 {0 0 0};
+    %vpi_call 2 36 "$monitor", "Time = %0t | clk = %b | reset = %b | count = %b", $time, v0000026bdafabd20_0, v0000026bdafa95b0_0, v0000026bdafa9510_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000026bdafabd20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000026bdafa95b0_0, 0, 1;
+    %delay 15, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000026bdafa95b0_0, 0, 1;
+    %delay 200, 0;
+    %vpi_call 2 41 "$stop" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "up_counter.v";
